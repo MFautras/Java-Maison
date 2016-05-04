@@ -4,6 +4,8 @@ import classesMetier.ContratCession;
 import classesMetier.ContratTravail;
 import classesMetier.Intermittent;
 import classesMetier.Representation;
+import classesMetier.Spectacle;
+import classesMetier.User;
 import gestionRepresentations.RepresentationAjouter;
 import gestionRepresentations.RepresentationAjouterDansContratCession;
 import java.text.DateFormat;
@@ -33,15 +35,13 @@ public class ContratTravailAjouter extends javax.swing.JFrame {
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
         //on remplit la combobox intermittents
-        Intermittent NomIntermittent = null;
         jComboBoxNom.removeAllItems();
         for (Intermittent unIntermittent : NezDamesSerialisation.lesIntermittents) {
             jComboBoxNom.addItem(unIntermittent.getNomIntermittent() +" "+unIntermittent.getPrenomIntermittent());
-            NomIntermittent = unIntermittent;
         }
 
         jComboBoxCCE.removeAllItems();
-        //Numero Contrat de Cession
+        //On remplit la Jcombobox pour contrat de cession
         for (ContratCession unContratCession : lesContratsCession) {
             jComboBoxCCE.addItem(unContratCession.getNumeroContratCession());
         }
@@ -292,32 +292,37 @@ public class ContratTravailAjouter extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEnvoyerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnvoyerActionPerformed
-        // test qui vérifie que les champs sont remplis
 
         //--------------CREATION DU CONTRAT DE TRAVAIL-------------------------------------
         
         //on remplit la combobox intermittents
-        Intermittent NomIntermittent = null;
-        jComboBoxNom.removeAllItems();
+        Intermittent cetIntermittent = null;
+        //jComboBoxNom.removeAllItems();
+        
+        String chaine = null;
+        String nomPrenomChoisi = null;
         
         for (Intermittent unIntermittent : NezDamesSerialisation.lesIntermittents) {
-            jComboBoxNom.addItem(unIntermittent.getNomIntermittent() + unIntermittent.getPrenomIntermittent());
-            NomIntermittent = unIntermittent;
+            chaine = unIntermittent.getNomIntermittent()+" "+unIntermittent.getPrenomIntermittent();
+            nomPrenomChoisi=jComboBoxNom.getSelectedItem().toString();
+            if(chaine.compareTo(nomPrenomChoisi) == 0){
+            cetIntermittent = unIntermittent;
+            }
         }
         
-        if (txtNbrHeure.getText().compareTo("") == 0) {
+         // test qui vérifie que les champs sont remplis
+        /*if (txtNbrHeure.getText().compareTo("") == 0) {
             JOptionPane.showMessageDialog(null, "Il faut saisir le nombre d'heures travailler");
         }
-        if (txtJours.getText().compareTo("") == 0) {
+        else if (txtJours.getText().compareTo("") == 0) {
             JOptionPane.showMessageDialog(null, "Il faut saisir les jours ou vous travaillez");
         }
-        if (txtEditer.getText().compareTo("") == 0) {
+        else if (txtEditer.getText().compareTo("") == 0) {
             JOptionPane.showMessageDialog(null, "Ecrivez oui ou non");
-        } else {
+        } else {*/
 
             // recherche du Role
             ContratTravail theRole = null;
-
             for (ContratTravail unContratTravail : NezDamesSerialisation.lesContratsTravail) {
                 if (unContratTravail.getRole().compareTo((String) jComboBoxRole.getSelectedItem()) == 0) {
                     theRole = unContratTravail;
@@ -363,12 +368,31 @@ public class ContratTravailAjouter extends javax.swing.JFrame {
 
             NezDamesSerialisation.lesContratsTravail.add(new ContratTravail(nouveauNumeroContrat, 
              jComboBoxRole.getSelectedItem().toString(), Integer.parseInt(txtNbrHeure.getText()), 
-                    Boolean.parseBoolean(txtEditer.getText()), contratChoisi, NomIntermittent));
+                    Boolean.parseBoolean(txtEditer.getText()), contratChoisi, cetIntermittent));
              JOptionPane.showMessageDialog(null, "Contrat de Travail ajouté.");
+            
+            /*User unUser = new User("aa@hotmail.fr", "0003");
+            User deUser = new User("bb@hotmail.fr", "0004");
+            
+            Intermittent unIntermittent = new Intermittent("aa", "aa", "15 aa", "champs", 77420, "aa@hotmail.fr", "0102030405", "02/03/96", "aa", "aaa", "1", "1", "rien", unUser);
+            Intermittent deIntermittent = new Intermittent("bb", "b", "15 bb", "champs", 77420, "bb@hotmail.fr", "0504030201", "04/05/93", "bb", "bbb", "1", "1", "rien", deUser);
+            
+            ArrayList<Intermittent> testIntermittent = new ArrayList<Intermittent>();
+            testIntermittent.add(unIntermittent);
+            testIntermittent.add(deIntermittent);
+            
+            Spectacle s1 = new Spectacle("20", 90, "Poule", 2010, 10, "no", "no", testIntermittent);
+            
+            ContratCession lecontrat = new ContratCession("16CCES001", 2000, s1);
+            
+            NezDamesSerialisation.lesContratsTravail.add(new ContratTravail("16CTRA001", 
+             "Costumière", 35, 
+                    true, lecontrat, cetIntermittent));
+             JOptionPane.showMessageDialog(null, "Contrat de Travail ajouté.");*/
             
             this.dispose();
 
-        }
+        //}
     }//GEN-LAST:event_btnEnvoyerActionPerformed
 
     private void btnAnnulerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnnulerActionPerformed

@@ -337,7 +337,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
             NezDamesSerialisation.lesContratsCession = (ArrayList<ContratCession>) fluxContratsCession.readObject();
             
            // chargement des contrats de Travail
-            //si pas en commentaire message "nouveaux fichier" afficher à chaque fois
             FileInputStream fichierContratsTravail = new FileInputStream("lesContratsTravail.txt");
             ObjectInputStream fluxContratsTravail = new ObjectInputStream(fichierContratsTravail);
             NezDamesSerialisation.lesContratsTravail = (ArrayList<ContratTravail>) fluxContratsTravail.readObject();
