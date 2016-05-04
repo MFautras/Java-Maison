@@ -322,12 +322,16 @@ public class ContratTravailAjouter extends javax.swing.JFrame {
         } else {*/
 
             // recherche du Role
-            ContratTravail theRole = null;
-            for (ContratTravail unContratTravail : NezDamesSerialisation.lesContratsTravail) {
-                if (unContratTravail.getRole().compareTo((String) jComboBoxRole.getSelectedItem()) == 0) {
+            /*ContratTravail theRole = null;
+            String chaineRole = null;
+            String roleChoisie = null;  
+            for (String unRole : lesRoles) {
+                chaineRole = unRole.getRole();
+                roleChoisie = jComboBoxRole.getSelectedItem().toString();
+                if (chaineRole.compareTo(roleChoisie) == 0) {
                     theRole = unContratTravail;
                 }
-            }
+            }*/
             
         ContratCession contratChoisi = null;
         //recherche du contrat de cession
