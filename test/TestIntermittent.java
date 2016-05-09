@@ -16,6 +16,9 @@ public class TestIntermittent extends TestCase {
     public TestIntermittent(String testName) {
         super(testName);
         
+        
+        
+        
        // Intermittent I1 = new Intermittent("")
     }
     

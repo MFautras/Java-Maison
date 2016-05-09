@@ -311,7 +311,7 @@ public class ContratTravailAjouter extends javax.swing.JFrame {
         }
         
          // test qui vérifie que les champs sont remplis
-        /*if (txtNbrHeure.getText().compareTo("") == 0) {
+        if (txtNbrHeure.getText().compareTo("") == 0) {
             JOptionPane.showMessageDialog(null, "Il faut saisir le nombre d'heures travailler");
         }
         else if (txtJours.getText().compareTo("") == 0) {
@@ -319,7 +319,7 @@ public class ContratTravailAjouter extends javax.swing.JFrame {
         }
         else if (txtEditer.getText().compareTo("") == 0) {
             JOptionPane.showMessageDialog(null, "Ecrivez oui ou non");
-        } else {*/
+        } else {
 
             // recherche du Role
             /*ContratTravail theRole = null;
@@ -396,7 +396,7 @@ public class ContratTravailAjouter extends javax.swing.JFrame {
             
             this.dispose();
 
-        //}
+        }
     }//GEN-LAST:event_btnEnvoyerActionPerformed
 
     private void btnAnnulerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnnulerActionPerformed
