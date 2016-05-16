@@ -16,6 +16,16 @@ public class ContratTravail {
     private Intermittent lintermittent;
     public static ArrayList<Representation> lesRepresentations;
 
+    
+    /**
+     * Constructeur de la classe ContratTravail
+     * @param numContratTravail
+     * @param role
+     * @param nombreHeures
+     * @param edition
+     * @param leContratCession
+     * @param lintermittent 
+     */
     public ContratTravail(String numContratTravail, String role, int nombreHeures, 
             boolean edition, ContratCession leContratCession, 
             Intermittent lintermittent) {
@@ -39,6 +49,10 @@ public class ContratTravail {
         this.edition = false; //l'indicateur d'édition est mis à FAUX
     }
     
+    /**
+     * Getter du numero de contrat de travail
+     * @return numContratTravail
+     */
     public String getNumContratTravail() {
         return numContratTravail;
     }
@@ -67,6 +81,11 @@ public class ContratTravail {
         return lesRepresentations;
     }
 
+    
+    /**
+     * Setter du numero de contrat de travail
+     * @param numContratTravail 
+     */
     public void setNumContratTravail(String numContratTravail) {
         this.numContratTravail = numContratTravail;
     }

@@ -26,6 +26,23 @@ public class Intermittent implements Serializable {
     
     private static int donneNumeroIntermittent = 0;
 
+    /**
+     * Constructeur de la classe Intermittent
+     * @param nomIntermittent
+     * @param prenomIntermittent
+     * @param adresseRue
+     * @param adresseVille
+     * @param codePostal
+     * @param mailIntermittent
+     * @param telIntermittent
+     * @param dateNaissance
+     * @param villeNaissance
+     * @param nationalite
+     * @param numeroCongeSpectacle
+     * @param numeroInsee
+     * @param remarques
+     * @param leUser 
+     */
     public Intermittent(String nomIntermittent, String prenomIntermittent, String adresseRue, String adresseVille, int codePostal, String mailIntermittent, String telIntermittent, String dateNaissance, String villeNaissance, String nationalite, String numeroCongeSpectacle, String numeroInsee, String remarques, User leUser) {
         Intermittent.donneNumeroIntermittent++;
         this.idIntermittent = Intermittent.donneNumeroIntermittent;

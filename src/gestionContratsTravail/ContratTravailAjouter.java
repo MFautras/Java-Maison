@@ -46,7 +46,9 @@ public class ContratTravailAjouter extends javax.swing.JFrame {
             jComboBoxCCE.addItem(unContratCession.getNumeroContratCession());
         }
 
-        //on remplit la JComboBox
+        /**
+         * Remplisage de la JComboBoxRole
+         */
         jComboBoxRole.removeAllItems();
 
         ArrayList<String> lesRoles = new ArrayList();

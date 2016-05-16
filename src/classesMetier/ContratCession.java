@@ -22,6 +22,12 @@ public class ContratCession implements Serializable {
     private ArrayList <Representation> lesRepresentations ;
     private boolean edition;
 
+    /**
+     * Constructeur de la classe ContratCession
+     * @param numeroContratCession
+     * @param montantGlobalCession
+     * @param leSpectacleDuContratDeCession 
+     */
     public ContratCession(String numeroContratCession, double montantGlobalCession, Spectacle leSpectacleDuContratDeCession) {
         this.numeroContratCession = numeroContratCession;
         this.montantGlobalContrat = montantGlobalCession;
@@ -37,10 +43,18 @@ public class ContratCession implements Serializable {
         this.edition = false; //l'indicateur d'édition est mis à FAUX
     }
 
+     /**
+      * Getter du numero de contrat de cession
+      * @return numeroContratCession
+      */
     public String getNumeroContratCession() {
         return numeroContratCession;
     }
 
+    /**
+     * Setter du numero de contrat de cession
+     * @param numeroContratCession 
+     */
     public void setNumeroContratCession(String numeroContratCession) {
         this.numeroContratCession = numeroContratCession;
     }
